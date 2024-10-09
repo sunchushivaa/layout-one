@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .hover-underline-animation {
+      display: inline-block; /* Ensures the underline only spans the text width */
+      position: relative; /* Allows positioning of the pseudo-element */
+      color: black; /* Text color */
+    }
+
+    .hover-underline-animation::after {
+      content: ""; /* Creates a pseudo-element */
+      position: absolute; /* Positions the underline */
+      width: 100%; /* Full width of the text */
+      height: 1px; /* Thickness of the underline */
+      top: 20px; /* Aligns to the bottom of the text */
+      left: 0; /* Starts from the left */
+      background-color: black; /* Color of the underline */
+      transform: scaleX(0); /* Initially hidden */
+      transform-origin: bottom right; /* Origin point for scaling */
+      transition: transform 0.25s ease-out; /* Animation effect */
+    }
+
+    .hover-underline-animation:hover::after {
+      transform: scaleX(1); /* Reveals the underline on hover */
+      transform-origin: bottom left; /* Changes origin for animation direction */
+    }
+
+    .scale-up {
+      transition: transform 0.5s ease; /* Smooth transition for scaling */
+    }
+
+    .scale-up:hover {
+      transform: scale(1.05); /* Scale up on hover */
+    }
+
+    @keyframes fadeIn {
+      0% {
+        transform: scale(0); /* Start small */
+        opacity: 0; /* Start invisible */
+      }
+      100% {
+        transform: scale(1); /* Scale to normal size */
+        opacity: 1; /* Fully visible */
+      }
+    }
+
+    .animate-on-load {
+      animation: fadeIn 0.5s ease-out forwards; /* Animation on load */
+    }
+  </style>
+  <body>
+    <!-- Promotional header  -->
+
+    <header
+      class="flex justify-between items-center z-[100000] bg-gray-800 p-2 px-4 text-white text-sm h-12"
+    >
+      <!-- First child -->
+
+      <div class="w-[35%] flex justify-between items-center">
+        <button>
+          <a href="/">
+            <svg height="20px" width="20px" viewBox="0 0 310 310" fill="white">
+              <g id="XMLID_834_">
+                <path
+                  id="XMLID_835_"
+                  d="M81.703,165.106h33.981V305c0,2.762,2.238,5,5,5h57.616c2.762,0,5-2.238,5-5V165.765h39.064
+		c2.54,0,4.677-1.906,4.967-4.429l5.933-51.502c0.163-1.417-0.286-2.836-1.234-3.899c-0.949-1.064-2.307-1.673-3.732-1.673h-44.996
+		V71.978c0-9.732,5.24-14.667,15.576-14.667c1.473,0,29.42,0,29.42,0c2.762,0,5-2.239,5-5V5.037c0-2.762-2.238-5-5-5h-40.545
+		C187.467,0.023,186.832,0,185.896,0c-7.035,0-31.488,1.381-50.804,19.151c-21.402,19.692-18.427,43.27-17.716,47.358v37.752H81.703
+		c-2.762,0-5,2.238-5,5v50.844C76.703,162.867,78.941,165.106,81.703,165.106z"
+                />
+              </g>
+            </svg>
+          </a>
+        </button>
+        <button>
+          <a href="/">
+            <svg fill="white" height="20px" width="20px" viewBox="0 0 310 310">
+              <g id="XMLID_826_">
+                <path
+                  id="XMLID_827_"
+                  d="M302.973,57.388c-4.87,2.16-9.877,3.983-14.993,5.463c6.057-6.85,10.675-14.91,13.494-23.73
+		c0.632-1.977-0.023-4.141-1.648-5.434c-1.623-1.294-3.878-1.449-5.665-0.39c-10.865,6.444-22.587,11.075-34.878,13.783
+		c-12.381-12.098-29.197-18.983-46.581-18.983c-36.695,0-66.549,29.853-66.549,66.547c0,2.89,0.183,5.764,0.545,8.598
+		C101.163,99.244,58.83,76.863,29.76,41.204c-1.036-1.271-2.632-1.956-4.266-1.825c-1.635,0.128-3.104,1.05-3.93,2.467
+		c-5.896,10.117-9.013,21.688-9.013,33.461c0,16.035,5.725,31.249,15.838,43.137c-3.075-1.065-6.059-2.396-8.907-3.977
+		c-1.529-0.851-3.395-0.838-4.914,0.033c-1.52,0.871-2.473,2.473-2.513,4.224c-0.007,0.295-0.007,0.59-0.007,0.889
+		c0,23.935,12.882,45.484,32.577,57.229c-1.692-0.169-3.383-0.414-5.063-0.735c-1.732-0.331-3.513,0.276-4.681,1.597
+		c-1.17,1.32-1.557,3.16-1.018,4.84c7.29,22.76,26.059,39.501,48.749,44.605c-18.819,11.787-40.34,17.961-62.932,17.961
+		c-4.714,0-9.455-0.277-14.095-0.826c-2.305-0.274-4.509,1.087-5.294,3.279c-0.785,2.193,0.047,4.638,2.008,5.895
+		c29.023,18.609,62.582,28.445,97.047,28.445c67.754,0,110.139-31.95,133.764-58.753c29.46-33.421,46.356-77.658,46.356-121.367
+		c0-1.826-0.028-3.67-0.084-5.508c11.623-8.757,21.63-19.355,29.773-31.536c1.237-1.85,1.103-4.295-0.33-5.998
+		C307.394,57.037,305.009,56.486,302.973,57.388z"
+                />
+              </g>
+            </svg>
+          </a>
+        </button>
+        <button>
+          <a href="/">
+            <svg fill="white" height="20px" width="20px" viewBox="0 0 310 310">
+              <g id="XMLID_504_">
+                <path
+                  id="XMLID_505_"
+                  d="M38.52,0.012h222.978C282.682,0.012,300,17.336,300,38.52v222.978c0,21.178-17.318,38.49-38.502,38.49
+                  H38.52c-21.184,0-38.52-17.313-38.52-38.49V38.52C0,17.336,17.336,0.012,38.52,0.012z M218.546,33.329
+                  c-7.438,0-13.505,6.091-13.505,13.525v32.314c0,7.437,6.067,13.514,13.505,13.514h33.903c7.426,0,13.506-6.077,13.506-13.514
+                  V46.854c0-7.434-6.08-13.525-13.506-13.525H218.546z M266.084,126.868h-26.396c2.503,8.175,3.86,16.796,3.86,25.759
+                  c0,49.882-41.766,90.34-93.266,90.34c-51.487,0-93.254-40.458-93.254-90.34c0-8.963,1.37-17.584,3.861-25.759H33.35v126.732
+                  c0,6.563,5.359,11.902,11.916,11.902h208.907c6.563,0,11.911-5.339,11.911-11.902V126.868z M150.283,90.978
+                  c-33.26,0-60.24,26.128-60.24,58.388c0,32.227,26.98,58.375,60.24,58.375c33.278,0,60.259-26.148,60.259-58.375
+                  C210.542,117.105,183.561,90.978,150.283,90.978z"
+                />
+              </g>
+            </svg>
+          </a>
+        </button>
+
+        <button class="capitalize"><a href="/">about us</a></button>
+        <button class="capitalize"><a href="/">wishlist</a></button
+        ><button class="capitalize"><a href="/">contact</a></button>
+      </div>
+
+      <!-- Second child -->
+
+      <div>
+        <select class="bg-transparent p-2 py-0 outline-none cursor-pointer">
+          <option class="text-black" value="">English</option>
+          <option class="text-black" value="">French</option>
+          <option class="text-black" value="">Germany</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- Navbar component -->
+
+    <nav
+      id="navbar"
+      class="grid grid-cols-4 grid-rows-1 py-6 px-4 z-[100000] sticky top-0 bg-transparent"
+    >
+      <!-- First child  -->
+
+      <div
+        class="col-start-1 col-end-3 row-start-1 row-end-1 flex items-center gap-8"
+      >
+        <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M4 18L20 18"
+            stroke="#000000"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M4 12L20 12"
+            stroke="#000000"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M4 6L20 6"
+            stroke="#000000"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+
+        <button class="capitalize text-sm underline underline-offset-4">
+          main</button
+        ><button class="capitalize text-sm hover-underline-animation">
+          shop</button
+        ><button class="capitalize text-sm hover-underline-animation">
+          product</button
+        ><button class="capitalize text-sm hover-underline-animation">
+          pages</button
+        ><button class="capitalize text-sm hover-underline-animation">
+          journal
+        </button>
+      </div>
+
+      <!-- Second child  -->
+
+      <div class="col-start-1 col-end-6 row-start-1 row-end-1 text-center">
+        <h1 class="uppercase text-3xl font-bold tracking-widest">goya</h1>
+      </div>
+
+      <!-- Third child  -->
+
+      <div
+        class="col-start-5 col-end-5 row-start-1 row-end-1 flex justify-between items-center gap-8"
+      >
+        <button class="capitalize text-sm hover-underline-animation">
+          login
+        </button>
+
+        <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
+            stroke="#000000"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+
+        <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M15.7 4C18.87 4 21 6.98 21 9.76C21 15.39 12.16 20 12 20C11.84 20 3 15.39 3 9.76C3 6.98 5.13 4 8.3 4C10.12 4 11.31 4.91 12 5.71C12.69 4.91 13.88 4 15.7 4Z"
+            stroke="#000000"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+
+        <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M11.9999 3C10.3431 3 8.99994 4.34315 8.99994 6H14.9999C14.9999 4.34315 13.6568 3 11.9999 3ZM16.9999 6C16.9999 3.23858 14.7614 1 11.9999 1C9.23852 1 6.99994 3.23858 6.99994 6H5.10493C3.92168 6 2.99712 7.02164 3.11486 8.19901L3.99002 16.9506L3.25859 20.6078C3.01107 21.8454 3.95765 23 5.21975 23H18.7801C20.0422 23 20.9888 21.8454 20.7413 20.6078L20.0099 16.9506L20.885 8.19901C21.0028 7.02164 20.0782 6 18.895 6H16.9999ZM7.99994 8L5.10493 8L5.99498 16.9005L6.00987 17.0494L5.98052 17.1961L5.21975 21H18.7801L18.0194 17.1961L17.99 17.0494L18.0049 16.9005L18.895 8L19.89 8.09951L18.895 8H15.9999H7.99994ZM6.99994 17C6.99994 16.4477 7.44766 16 7.99994 16H15.9999C16.5522 16 16.9999 16.4477 16.9999 17C16.9999 17.5523 16.5522 18 15.9999 18H7.99994C7.44766 18 6.99994 17.5523 6.99994 17Z"
+            fill="#000000"
+          />
+        </svg>
+      </div>
+    </nav>
+
+    <div
+      id="carousel"
+      class="w-full relative top-[-5.25rem] h-[80vh] bg-imageOne bg-cover bg-no-repeat mb-16"
+    >
+      <div class="absolute top-[35%] left-[10%] flex flex-col gap-y-8">
+        <div>
+          <span
+            id="carousel-offer"
+            class="w-fit uppercase bg-white p-2 rounded text-sm font-bold"
+            >50% off</span
+          >
+        </div>
+
+        <div>
+          <h2
+            id="carousel-heading"
+            class="capitalize text-5xl font-semibold mb-4 text-black bg-slate-50"
+          >
+            new cocktail dresses
+          </h2>
+
+          <button
+            class="capitalize w-fit text-base text-gray-800 font-semibold underline underline-offset-4 bg-slate-50"
+          >
+            shop now
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Display content  -->
+
+    <section class="w-10/12 m-auto flex justify-between items-center mb-16">
+      <div
+        class="w-[30%] scale-up bg-bannerOne bg-cover h-[70vh] flex justify-center items-center p-12"
+      >
+        <div>
+          <h3
+            class="capitalize font-semibold text-3xl text-white flex flex-wrap mb-8"
+          >
+            button up shirts
+          </h3>
+          <button
+            class="p-1 px-3 text-sm bg-white rounded capitalize cursor-pointer"
+          >
+            buy now
+          </button>
+        </div>
+      </div>
+      <div
+        class="w-[30%] scale-up bg-bannerTwo bg-cover h-[70vh] flex justify-center items-center p-12"
+      >
+        <div>
+          <h3
+            class="capitalize font-semibold text-3xl text-white flex flex-wrap mb-8"
+          >
+            choose your price
+          </h3>
+          <button
+            class="p-1 px-3 text-sm bg-white rounded capitalize cursor-pointer"
+          >
+            choose yours
+          </button>
+        </div>
+      </div>
+      <div
+        class="w-[30%] scale-up hover bg-yellow-400 h-[70vh] flex justify-center items-center"
+      >
+        <div>
+          <h3
+            class="capitalize font-semibold text-3xl text-white flex flex-wrap mb-3"
+          >
+            clearances sale
+          </h3>
+          <p
+            class="mb-8 capitalize text-sm text-center text-white tracking-wide"
+          >
+            up to 70% off & free shipping
+          </p>
+          <button
+            class="p-1 px-3 text-sm bg-white rounded capitalize cursor-pointer"
+          >
+            browse sales
+          </button>
+        </div>
+      </div>
+    </section>
+    <hr class="mb-16" />
+
+    <!-- Best selling section  -->
+
+    <section class="w-5/6 m-auto mb-16">
+      <!-- First child  -->
+      <div class="mb-12">
+        <h3 class="text-center text-3xl font-medium capitalize mb-4">
+          best selling
+        </h3>
+        <p class="w-3/5 m-auto text-center text-gray-500">
+          Bushwick blue bottle photo booth copper mug marfa craft beer pour-over
+          swag subway tile organic cloud bread.
+        </p>
+      </div>
+
+      <!-- Second child  -->
+      <div class="flex justify-between items-center">
+        <div class="w-[30%] cursor-pointer">
+          <img
+            id="third-banner"
+            class="mb-4 object-cover transition"
+            src="./images/banner-three-one.webp"
+            alt="banner-three"
+          />
+          <h4>Cashmere Tank + Bag</h4>
+          <p class="text-gray-500">$39.00 - $98.00</p>
+        </div>
+        <div class="w-[30%] cursor-pointer">
+          <img
+            id="fourth-banner"
+            class="mb-4 object-cover transition"
+            src="./images/banner-four-one.webp"
+            alt="banner-four"
+          />
+          <h4>Micro Form Bag</h4>
+          <p class="text-gray-500">$98.00</p>
+        </div>
+        <div class="w-[30%] cursor-pointer">
+          <img
+            id="fifth-banner"
+            class="mb-4 object-cover transition"
+            src="./images/banner-five-one.webp"
+            alt="banner-five"
+          />
+          <h4>Cashmere Tank</h4>
+          <p class="text-gray-500">$39.00</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials section  -->
+
+    <section class="mb-16 p-12 bg-yellow-200">
+      <div class="mb-8">
+        <h3 class="text-center text-3xl font-medium capitalize">
+          testimonials
+        </h3>
+      </div>
+      <div class="w-1/2 m-auto">
+        <!-- First child  -->
+        <div class="text-center mb-8">
+          <p id="testimonials-description">
+            Disrupt single-origin coffee hammock quinoa cronut jean shorts
+            coloring book brooklyn seitan authentic craft beer.
+          </p>
+        </div>
+
+        <!-- Second child  -->
+        <div class="flex justify-center items-center gap-x-4">
+          <div>
+            <img
+              class="rounded-[50%] h-24 w-24"
+              id="testimonials-image"
+              src="./images/test-one.webp"
+              alt="testimonials"
+            />
+          </div>
+          <div>
+            <h4 class="font-semibold capitalize">calvin reeves</h4>
+            <p class="capitalize text-sm text-gray-500">actor</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trending section  -->
+
+    <section class="w-5/6 m-auto mb-24">
+      <!-- First child  -->
+      <div class="mb-12">
+        <h3 class="text-center text-3xl font-medium capitalize mb-4">
+          trending outfits
+        </h3>
+        <p class="w-3/5 m-auto text-center text-gray-500">
+          Intelligentsia migas next level 90s woke ramps. Glossier vape celiac
+          tumeric keffiyeh.
+        </p>
+      </div>
+
+      <!-- Second child  -->
+      <div class="flex justify-between items-center">
+        <div class="w-[30%] cursor-pointer">
+          <div class="w-full relative">
+            <img
+              id="trending-one"
+              class="mb-4 object-cover transition"
+              src="./images/banner-three-one.webp"
+              alt="banner-three"
+            />
+            <div
+              id="trending-one-options"
+              class="hidden absolute bottom-4 w-[40%] left-1/3 bg-white rounded p-4 justify-between items-center animate-on-load"
+            >
+              <svg width="25px" height="23px" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M15.7 4C18.87 4 21 6.98 21 9.76C21 15.39 12.16 20 12 20C11.84 20 3 15.39 3 9.76C3 6.98 5.13 4 8.3 4C10.12 4 11.31 4.91 12 5.71C12.69 4.91 13.88 4 15.7 4Z"
+                  stroke="#808080"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg width="25px" height="23px" viewBox="0 0 24 24" fill="none">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M11.9999 3C10.3431 3 8.99994 4.34315 8.99994 6H14.9999C14.9999 4.34315 13.6568 3 11.9999 3ZM16.9999 6C16.9999 3.23858 14.7614 1 11.9999 1C9.23852 1 6.99994 3.23858 6.99994 6H5.10493C3.92168 6 2.99712 7.02164 3.11486 8.19901L3.99002 16.9506L3.25859 20.6078C3.01107 21.8454 3.95765 23 5.21975 23H18.7801C20.0422 23 20.9888 21.8454 20.7413 20.6078L20.0099 16.9506L20.885 8.19901C21.0028 7.02164 20.0782 6 18.895 6H16.9999ZM7.99994 8L5.10493 8L5.99498 16.9005L6.00987 17.0494L5.98052 17.1961L5.21975 21H18.7801L18.0194 17.1961L17.99 17.0494L18.0049 16.9005L18.895 8L19.89 8.09951L18.895 8H15.9999H7.99994ZM6.99994 17C6.99994 16.4477 7.44766 16 7.99994 16H15.9999C16.5522 16 16.9999 16.4477 16.9999 17C16.9999 17.5523 16.5522 18 15.9999 18H7.99994C7.44766 18 6.99994 17.5523 6.99994 17Z"
+                  fill="#808080"
+                />
+              </svg>
+            </div>
+          </div>
+          <h4>Cashmere Tank + Bag</h4>
+          <p class="text-gray-500">$39.00 - $98.00</p>
+        </div>
+        <div class="w-[30%] cursor-pointer">
+          <div class="w-full relative">
+            <img
+              id="trending-two"
+              class="mb-4 object-cover transition"
+              src="./images/banner-four-one.webp"
+              alt="banner-four"
+            />
+            <div
+              id="trending-two-options"
+              class="hidden absolute bottom-4 w-[40%] left-1/3 bg-white rounded p-4 justify-between items-center animate-on-load"
+            >
+              <svg width="25px" height="23px" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M15.7 4C18.87 4 21 6.98 21 9.76C21 15.39 12.16 20 12 20C11.84 20 3 15.39 3 9.76C3 6.98 5.13 4 8.3 4C10.12 4 11.31 4.91 12 5.71C12.69 4.91 13.88 4 15.7 4Z"
+                  stroke="#808080"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg width="25px" height="23px" viewBox="0 0 24 24" fill="none">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M11.9999 3C10.3431 3 8.99994 4.34315 8.99994 6H14.9999C14.9999 4.34315 13.6568 3 11.9999 3ZM16.9999 6C16.9999 3.23858 14.7614 1 11.9999 1C9.23852 1 6.99994 3.23858 6.99994 6H5.10493C3.92168 6 2.99712 7.02164 3.11486 8.19901L3.99002 16.9506L3.25859 20.6078C3.01107 21.8454 3.95765 23 5.21975 23H18.7801C20.0422 23 20.9888 21.8454 20.7413 20.6078L20.0099 16.9506L20.885 8.19901C21.0028 7.02164 20.0782 6 18.895 6H16.9999ZM7.99994 8L5.10493 8L5.99498 16.9005L6.00987 17.0494L5.98052 17.1961L5.21975 21H18.7801L18.0194 17.1961L17.99 17.0494L18.0049 16.9005L18.895 8L19.89 8.09951L18.895 8H15.9999H7.99994ZM6.99994 17C6.99994 16.4477 7.44766 16 7.99994 16H15.9999C16.5522 16 16.9999 16.4477 16.9999 17C16.9999 17.5523 16.5522 18 15.9999 18H7.99994C7.44766 18 6.99994 17.5523 6.99994 17Z"
+                  fill="#808080"
+                />
+              </svg>
+            </div>
+          </div>
+          <h4>Micro Form Bag</h4>
+          <p class="text-gray-500">$98.00</p>
+        </div>
+        <div class="w-[30%] cursor-pointer">
+          <div class="w-full relative">
+            <img
+              id="trending-three"
+              class="mb-4 object-cover transition"
+              src="./images/banner-five-one.webp"
+              alt="banner-five"
+            />
+            <div
+              id="trending-three-options"
+              class="hidden absolute bottom-4 w-[40%] left-1/3 bg-white rounded p-4 justify-between items-center animate-on-load"
+            >
+              <svg width="25px" height="23px" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M15.7 4C18.87 4 21 6.98 21 9.76C21 15.39 12.16 20 12 20C11.84 20 3 15.39 3 9.76C3 6.98 5.13 4 8.3 4C10.12 4 11.31 4.91 12 5.71C12.69 4.91 13.88 4 15.7 4Z"
+                  stroke="#808080"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg width="25px" height="23px" viewBox="0 0 24 24" fill="none">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M11.9999 3C10.3431 3 8.99994 4.34315 8.99994 6H14.9999C14.9999 4.34315 13.6568 3 11.9999 3ZM16.9999 6C16.9999 3.23858 14.7614 1 11.9999 1C9.23852 1 6.99994 3.23858 6.99994 6H5.10493C3.92168 6 2.99712 7.02164 3.11486 8.19901L3.99002 16.9506L3.25859 20.6078C3.01107 21.8454 3.95765 23 5.21975 23H18.7801C20.0422 23 20.9888 21.8454 20.7413 20.6078L20.0099 16.9506L20.885 8.19901C21.0028 7.02164 20.0782 6 18.895 6H16.9999ZM7.99994 8L5.10493 8L5.99498 16.9005L6.00987 17.0494L5.98052 17.1961L5.21975 21H18.7801L18.0194 17.1961L17.99 17.0494L18.0049 16.9005L18.895 8L19.89 8.09951L18.895 8H15.9999H7.99994ZM6.99994 17C6.99994 16.4477 7.44766 16 7.99994 16H15.9999C16.5522 16 16.9999 16.4477 16.9999 17C16.9999 17.5523 16.5522 18 15.9999 18H7.99994C7.44766 18 6.99994 17.5523 6.99994 17Z"
+                  fill="#808080"
+                />
+              </svg>
+            </div>
+          </div>
+          <h4>Cashmere Tank</h4>
+          <p class="text-gray-500">$39.00</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="mb-16" />
+
+    <!-- Visit us section  -->
+
+    <section class="w-5/6 m-auto mb-16">
+      <!-- First child  -->
+      <div class="mb-12">
+        <h3 class="text-center text-3xl font-medium capitalize mb-4">
+          visit us
+        </h3>
+        <p class="w-3/5 m-auto text-center text-gray-500">
+          Stop by our stores to learn the stories behind our products, get a
+          personal styling session, or shop the latest in person. See our store
+          locations.
+        </p>
+      </div>
+      <div>
+        <img src="./images/visit-banner.webp" alt="store" />
+      </div>
+    </section>
+
+    <hr class="mb-16" />
+
+    <!-- Navbar section  -->
+
+    <nav class="pb-12">
+      <!-- First child  -->
+      <div
+        class="w-full px-12 flex justify-between items-start flex-wrap mb-20"
+      >
+        <div class="flex flex-col gap-y-4">
+          <div>
+            <h5 class="uppercase text-gray-500 tracking-wider font-medium">
+              company
+            </h5>
+          </div>
+          <div class="flex flex-col gap-y-4">
+            <h6 class="capitalize text-sm hover-underline-animation w-fit">
+              about us
+            </h6>
+            <h6 class="capitalize text-sm hover-underline-animation w-fit">
+              contact
+            </h6>
+            <h6 class="capitalize text-sm hover-underline-animation w-fit">
+              store locations
+            </h6>
+            <h6 class="capitalize text-sm hover-underline-animation w-fit">
+              careers
+            </h6>
+          </div>
+        </div>
+        <div class="flex flex-col gap-y-4">
+          <div>
+            <h5 class="uppercase text-gray-500 tracking-wider font-medium">
+              help
+            </h5>
+          </div>
+          <div class="flex flex-col gap-y-4">
+            <h6 class="capitalize text-sm hover-underline-animation w-fit">
+              order tracking
+            </h6>
+            <h6 class="capitalize text-sm hover-underline-animation w-fit">
+              faq's
+            </h6>
+            <h6 class="capitalize text-sm hover-underline-animation w-fit">
+              privacy policy
+            </h6>
+            <h6 class="capitalize text-sm hover-underline-animation w-fit">
+              terms & conditions
+            </h6>
+          </div>
+        </div>
+        <div class="flex flex-col gap-y-4">
+          <div>
+            <h5 class="uppercase text-gray-500 tracking-wider font-medium">
+              store
+            </h5>
+          </div>
+          <div class="flex flex-col gap-y-4">
+            <h6 class="capitalize text-sm hover-underline-animation w-fit">
+              women
+            </h6>
+            <h6 class="capitalize text-sm hover-underline-animation w-fit">
+              men
+            </h6>
+            <h6 class="capitalize text-sm hover-underline-animation w-fit">
+              speakers
+            </h6>
+          </div>
+        </div>
+        <div class="flex flex-col gap-y-4">
+          <div>
+            <h5 class="uppercase text-gray-500 tracking-wider font-medium">
+              follow us
+            </h5>
+          </div>
+          <div>
+            <p>And get Free Shipping on all your orders!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second child  -->
+      <div class="px-12 text-center mb-20">
+        <div class="flex flex-col gap-y-2 mb-8">
+          <h5 class="uppercase font-medium text-2xl">
+            sign up now & get 10% off
+          </h5>
+          <p class="text-sm text-gray-500">
+            Be the first to know about our new arrivals and exclusive offers.
+          </p>
+        </div>
+        <form>
+          <input
+            class="outline-none border-2 border-black p-4"
+            type="email"
+            placeholder="Enter email"
+          />
+          <input
+            class="border-2 border-black bg-black text-white p-4 px-8"
+            type="submit"
+            value="Sign up"
+          />
+        </form>
+      </div>
+
+      <hr class="mb-8" />
+
+      <!-- Third child  -->
+
+      <div class="w-full px-12 flex justify-between items-start flex-wrap">
+        <div class="flex gap-x-8">
+          <p class="hover-underline-animation capitalize">privacy policy</p>
+          <p class="hover-underline-animation capitalize">terms & conditions</p>
+        </div>
+        <div>
+          <p>©2021 Goya - WordPress Theme</p>
+        </div>
+      </div>
+    </nav>
+  </body>
+  <script src="./index.js"></script>
+</html>
